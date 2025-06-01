@@ -1,0 +1,45 @@
+#: import get_color_from_hex kivy.utils.get_color_from_hex
+<DisplayScreen>:
+    name: "mainscreen"
+    canvas.before:
+        Color:
+            rgba: 0,0,0,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    MDBoxLayout:
+        FitImage:
+            source: 'bg.jpg'
+
+    MDLabel:
+        id: quote_label
+        text: root.quote_text
+        padding: 5
+        spacing: 5
+        font_name: 'Minicupcake.otf'
+        font_size: '20sp'
+        pos: root.width * 0.05, root.height * 0.25
+        color: get_color_from_hex("f9f9f9")
+        bold:True
+        outline_width: 2
+        outline_color: get_color_from_hex("23557c")
+
+
+    Widget:
+        MagicButton:
+            style:"outlined"
+            size: root.width * 0.25, root.height * 0.08
+            pos: root.width * 0.4, root.height * 0.2
+            radius: 5,5,5,5
+            on_release: root.get_quote(), self.shake()
+            md_bg_color: get_color_from_hex("010f1a")
+            outline_width: 3
+            outline_color: get_color_from_hex("060610")
+
+        MDLabel:
+            text: root.button_text
+            font_name: 'Minicupcake.otf'
+            size: root.width * 0.2, root.height * 0.1
+            pos: root.width * 0.46, root.height * 0.19
+            color: get_color_from_hex("f9f9f9")
