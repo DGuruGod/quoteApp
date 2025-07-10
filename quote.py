@@ -51,6 +51,7 @@ class DisplayScreen(Screen):
         self.bg.size = self.size
         self.bg.pos = self.pos
 
+
     def get_quote(self):
         try:
             r = requests.get('https://api.kanye.rest')
